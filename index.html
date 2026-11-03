@@ -3,91 +3,104 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101b30">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111111">
+
 <title>FM Pueblo Viejo 89.9 | General Roca</title>
-<meta name="description" content="FM Pueblo Viejo 89.9. Una radio que se hace sentir. General Roca, Patagonia Argentina. Escuchanos en vivo.">
+<meta name="description" content="FM Pueblo Viejo 89.9. Una radio que se hace sentir. Escuchanos en vivo desde General Roca, Patagonia Argentina.">
 
 <style>
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: #101827;
+  background: #111;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
-  padding: 24px 20px;
+  background: #080808;
+  padding: 22px 15px;
   text-align: center;
-  background: #14233d;
-  border-bottom: 3px solid #e99b32;
+  border-bottom: 4px solid #e71926;
 }
 
 .logo {
-  font-size: 35px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.dial {
-  color: #f3ad43;
-  font-size: 19px;
-  font-weight: bold;
-  margin-top: 5px;
+  display: block;
+  width: min(100%, 440px);
+  height: auto;
+  margin: auto;
+  border-radius: 3px;
 }
 
 header p {
-  color: #bdcce0;
-  font-size: 12px;
-  letter-spacing: 2px;
+  color: #ccc;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 15px 0 0;
 }
 
 main {
-  max-width: 850px;
+  max-width: 900px;
   margin: auto;
-  padding: 25px 18px;
+  padding: 20px;
 }
 
 .hero {
   text-align: center;
-  padding: 35px 10px;
+  padding: 30px 10px 20px;
 }
 
 .hero h1 {
-  font-size: 30px;
+  font-size: clamp(25px, 5vw, 38px);
   margin: 0 0 10px;
+  font-weight: 900;
 }
 
 .hero p {
-  color: #f3ad43;
-  font-size: 17px;
+  color: #ff333d;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .player {
-  background: #1b2b45;
-  border: 1px solid #354967;
-  border-radius: 14px;
-  padding: 25px 18px;
+  background: #202020;
+  border: 1px solid #414141;
+  border-top: 4px solid #e71926;
+  border-radius: 12px;
+  padding: 28px 20px;
   text-align: center;
   margin: 15px 0 30px;
 }
 
 .live {
-  color: #69e2a0;
+  color: #70e69b;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
 .player h2 {
-  font-size: 21px;
+  font-size: 23px;
+  margin: 15px 0 5px;
+}
+
+.player p {
+  color: #bbb;
+  margin: 5px 0 18px;
 }
 
 audio {
+  display: block;
   width: 100%;
-  margin-top: 12px;
+  margin-top: 15px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 22px;
+  margin: 38px 0 20px;
 }
 
 .social {
@@ -101,93 +114,99 @@ audio {
 .social a {
   color: white;
   text-decoration: none;
-  background: #263b5c;
-  padding: 12px 18px;
-  border-radius: 8px;
+  background: #292929;
+  border: 1px solid #555;
+  padding: 13px 20px;
+  border-radius: 7px;
   font-size: 14px;
+  transition: .2s;
 }
 
 .social a:hover {
-  background: #e99b32;
-  color: #101827;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 21px;
-  margin: 35px 0 18px;
+  background: #e71926;
+  border-color: #e71926;
 }
 
 .advertising {
-  background: #1b2b45;
+  background: #202020;
   border-radius: 12px;
   padding: 12px;
-  text-align: center;
+  border: 1px solid #393939;
 }
 
 .banner {
   display: none;
-  min-height: 125px;
-  border-radius: 8px;
-  background: #263b5c;
+  min-height: 130px;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 20px;
+  background: #292929;
+  border-radius: 8px;
 }
 
-.banner.active {
-  display: flex;
-}
+.banner.active { display: flex; }
 
 .banner strong {
-  font-size: 19px;
-  color: #f3ad43;
+  display: block;
+  font-size: 21px;
+  color: #ff3943;
 }
 
 .banner span {
   display: block;
-  font-size: 13px;
-  color: #d5dfed;
-  margin-top: 8px;
+  color: #ddd;
+  font-size: 14px;
+  margin-top: 9px;
 }
 
 .about {
   text-align: center;
-  line-height: 1.7;
-  color: #c5d1e0;
+  line-height: 1.8;
+  color: #ccc;
   padding: 10px;
 }
 
 .anniversary {
   text-align: center;
-  color: #f3ad43;
-  font-size: 23px;
+  color: #ff3943;
+  font-size: 25px;
   font-weight: bold;
-  margin: 30px 0;
+  margin: 35px 0;
+  line-height: 1.5;
+}
+
+.anniversary small {
+  font-size: 13px;
+  color: #ccc;
+  letter-spacing: 2px;
 }
 
 .contact {
-  background: #1b2b45;
+  background: #202020;
   border-radius: 12px;
-  padding: 22px;
+  padding: 25px;
   text-align: center;
+  border-bottom: 3px solid #e71926;
 }
 
-.contact p {
-  color: #c5d1e0;
-}
-
-.contact a {
-  color: #f3ad43;
-}
+.contact p { color: #ccc; }
 
 footer {
   text-align: center;
   padding: 25px 15px;
-  color: #8293aa;
+  color: #999;
   font-size: 12px;
-  background: #0b1321;
-  margin-top: 35px;
+  background: #080808;
+  margin-top: 40px;
+  line-height: 1.8;
+}
+
+@media(max-width: 500px) {
+  main { padding: 12px; }
+  .hero { padding-top: 25px; }
+  .player { padding: 22px 14px; }
+  .social a { padding: 12px 15px; }
 }
 </style>
 </head>
@@ -195,91 +214,94 @@ footer {
 <body>
 
 <header>
-  <div class="logo">PUEBLO VIEJO</div>
-  <div class="dial">89.9 FM</div>
+  <img class="logo"
+       src="logo-pueblo-viejo.jpg"
+       alt="FM Pueblo Viejo 89.9">
   <p>GENERAL ROCA · RÍO NEGRO · PATAGONIA ARGENTINA</p>
 </header>
 
 <main>
 
-  <section class="hero">
-    <h1>Una radio que se hace sentir.</h1>
-    <p>La radio más latina del dial.</p>
-  </section>
+<section class="hero">
+  <h1>Una radio que se hace sentir.</h1>
+  <p>La radio más latina del dial.</p>
+</section>
 
-  <section class="player">
-    <div class="live">● TRANSMITIENDO EN VIVO</div>
-    <h2>FM PUEBLO VIEJO 89.9</h2>
-    <p>ATR · A todo ritmo</p>
+<section class="player">
+  <div class="live">● TRANSMITIENDO EN VIVO</div>
+  <h2>FM PUEBLO VIEJO 89.9</h2>
+  <p>ATR · A todo ritmo</p>
 
-    <audio controls preload="none">
-      <source src="https://s3.netradiofm.com/p/6042/stream" type="audio/mpeg">
-      Tu navegador no admite la reproducción de audio.
-    </audio>
-  </section>
+  <audio controls preload="none">
+    <source src="https://s3.netradiofm.com/p/6042/stream"
+            type="audio/mpeg">
+    Tu navegador no admite la reproducción de audio.
+  </audio>
+</section>
 
-  <h2 class="section-title">Conectate con Pueblo Viejo</h2>
+<h2 class="section-title">Conectate con Pueblo Viejo</h2>
 
-  <nav class="social">
-    <!-- Reemplazar # por los enlaces oficiales -->
-    <a href="#" target="_blank">Facebook</a>
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">TikTok</a>
-    <a href="#" target="_blank">WhatsApp</a>
-  </nav>
+<nav class="social">
+  <!-- Aquí colocaremos los enlaces oficiales -->
+  <a href="#" target="_blank">Facebook</a>
+  <a href="#" target="_blank">Instagram</a>
+  <a href="#" target="_blank">TikTok</a>
+  <a href="#" target="_blank">WhatsApp</a>
+</nav>
 
-  <h2 class="section-title">Nuestros anunciantes</h2>
+<h2 class="section-title">Nuestros anunciantes</h2>
 
-  <section class="advertising">
+<section class="advertising">
 
-    <!-- Los banners comerciales se reemplazarán por los de cada cliente -->
-    <div class="banner active">
-      <div>
-        <strong>¿Querés anunciar en Pueblo Viejo?</strong>
-        <span>Tu comercio también puede estar acá.</span>
-      </div>
+  <div class="banner active">
+    <div>
+      <strong>Tu comercio en Pueblo Viejo</strong>
+      <span>Consultá por publicidad y propuestas comerciales.</span>
     </div>
-
-    <div class="banner">
-      <div>
-        <strong>Tu marca merece ser escuchada.</strong>
-        <span>Consultá nuestras propuestas comerciales.</span>
-      </div>
-    </div>
-
-    <div class="banner">
-      <div>
-        <strong>FM Pueblo Viejo 89.9</strong>
-        <span>Publicidad y comunicación en General Roca.</span>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="about">
-    <h2 class="section-title">Una radio con historia</h2>
-    <p>
-      Desde General Roca, Río Negro, acompañando a nuestra
-      audiencia con música, información y comunicación.
-      Una radio que se hace sentir en la Patagonia.
-    </p>
-  </section>
-
-  <div class="anniversary">
-    19 AÑOS DE HISTORIA<br>
-    <small>8 DE DICIEMBRE · 2007 — 2026</small>
   </div>
 
-  <section class="contact">
-    <h2>¿Querés comunicarte con nosotros?</h2>
-    <p>Estamos para escucharte.</p>
-    <p>Publicidad · Noticias · Participación</p>
-  </section>
+  <div class="banner">
+    <div>
+      <strong>Tu marca merece ser escuchada.</strong>
+      <span>General Roca · Río Negro.</span>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div>
+      <strong>FM Pueblo Viejo 89.9</strong>
+      <span>Una radio que se hace sentir.</span>
+    </div>
+  </div>
+
+</section>
+
+<section class="about">
+  <h2 class="section-title">Una radio con historia</h2>
+  <p>
+    Desde General Roca, Río Negro, acompañando a nuestra
+    audiencia con música, información y comunicación.
+    Una radio que se hace sentir en toda la Patagonia.
+  </p>
+</section>
+
+<div class="anniversary">
+  19 AÑOS DE HISTORIA
+  <br>
+  <small>8 DE DICIEMBRE · 2007 — 2026</small>
+</div>
+
+<section class="contact">
+  <h2>Estamos para escucharte</h2>
+  <p>Publicidad · Noticias · Participación</p>
+  <p>FM Pueblo Viejo 89.9 · General Roca</p>
+</section>
 
 </main>
 
 <footer>
-  FM PUEBLO VIEJO 89.9 · GENERAL ROCA · PATAGONIA ARGENTINA<br>
+  FM PUEBLO VIEJO 89.9<br>
+  GENERAL ROCA · RÍO NEGRO · PATAGONIA ARGENTINA<br>
   Una radio que se hace sentir.
 </footer>
 
@@ -296,3 +318,5 @@ setInterval(() => {
 
 </body>
 </html>
+
+
