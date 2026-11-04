@@ -328,12 +328,14 @@
 
       for (let i = 0; i < 4; i++) {
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
-        let imgUrl = 'sponsor' + sponsorNum + '.png';
+        
+        // El sponsor 6 y 7 son .jpg, los demás .png. Y están dentro de la carpeta fmpuebloviejo-sponsors/
+        let ext = (sponsorNum === 6 || sponsorNum === 7) ? 'jpg' : 'png';
+        let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.' + ext;
 
-        // Si la imagen falla, ahora te mostrará exactamente qué archivo está buscando (ej: "No se encuentra: sponsor1.png")
         html += `
           <div class="bg-white/95 border border-slate-700/50 p-2.5 rounded-2xl flex items-center justify-center shadow-md h-24 overflow-hidden fade-in">
-            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900/60 border border-slate-800 p-2 rounded-2xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-triangle-exclamation text-amber-400 text-base mb-1\\'></i><span>Falta: sponsor${sponsorNum}.png</span>';">
+            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900/60 border border-slate-800 p-2 rounded-2xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-triangle-exclamation text-amber-400 text-base mb-1\\'></i><span>Falta: ${imgUrl}</span>';">
           </div>
         `;
       }
