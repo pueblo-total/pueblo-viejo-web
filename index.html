@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES / BANNERS ROTATIVOS (400x200) -->
+    <!-- SECCIÓN ANUNCIANTES / BANNERS QUE LLENAN TODO EL RECTÁNGULO -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
@@ -188,9 +188,9 @@
         <span class="text-[11px] text-rose-400 font-medium">Marcas que acompañan el aire</span>
       </div>
 
-      <!-- GRILLA PARA LOS BANNERS EN 400x200 -->
+      <!-- GRILLA OPTIMIZADA PARA LLENAR EL ESPACIO SIN AIRE -->
       <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <!-- Los banners reales rotarán dinámicamente aquí -->
+        <!-- Los banners reales se expanden para cubrir todo el bloque -->
       </div>
     </section>
 
@@ -329,14 +329,13 @@
 
       for (let i = 0; i < 4; i++) {
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
-        
-        // Detecta automáticamente si el 6 o 7 son .jpg y los demás .png, dentro de tu carpeta
         let ext = (sponsorNum === 6 || sponsorNum === 7) ? 'jpg' : 'png';
         let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.' + ext;
 
+        // Se usa object-cover para que la imagen cubra todo el rectángulo sin dejar aire ni fondos blancos desparejos
         html += `
-          <div class="bg-white border-2 border-slate-700/60 p-2 rounded-xl flex items-center justify-center shadow-lg h-24 overflow-hidden fade-in">
-            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>';">
+          <div class="bg-slate-900 border-2 border-slate-700/80 rounded-xl overflow-hidden shadow-xl h-24 fade-in flex items-center justify-center">
+            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-cover" onerror="this.onerror=null; this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>';">
           </div>
         `;
       }
