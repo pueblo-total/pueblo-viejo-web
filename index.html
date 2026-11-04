@@ -1,3 +1,6 @@
+HTML
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -171,7 +174,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES / BANNER ROTATIVO PUBLICITARIO -->
+    <!-- SECCIÓN ANUNCIANTES CON GRILLA PROLIJA DE LOGOS (11 ANUNCIANTES) -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
@@ -180,30 +183,27 @@
         <span class="text-[11px] text-rose-400 font-medium">Anuncie en FM Pueblo Viejo 89.9</span>
       </div>
 
-      <!-- BANNER PUBLICITARIO DESTACADO (ROTATIVO AUTOMÁTICO) -->
-      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-700/60 rounded-2xl p-6 text-center shadow-lg relative overflow-hidden transition-all duration-500 min-h-[120px] flex items-center justify-center">
-        <div id="adBannerContent" class="space-y-2">
-          <!-- Este contenido va rotando solo cada 4 segundos -->
-          <span class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-500/20 uppercase tracking-widest">ESPACIO PUBLICITARIO</span>
-          <h4 id="adTitle" class="text-xl font-bold text-white">Comercio Local de General Roca</h4>
-          <p id="adDesc" class="text-xs text-slate-400">Tu lugar ideal para tus compras diarias. Visitanos en General Roca.</p>
-        </div>
-      </div>
+      <!-- GRILLA ADAPTADA PARA CONTENER FONDOS BLANCOS PROLIJOS -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        
+        <!-- Recuadros para sponsor1.png hasta sponsor11.png -->
+        <!-- Si un logo no existe aún, muestra un recuadro de texto limpio -->
+        <script>
+          for (let i = 1; i <= 11; i++) {
+            document.write(`
+              <div class="bg-white/95 border border-slate-700/50 p-2.5 rounded-2xl flex items-center justify-center shadow-md hover:scale-105 transition-transform h-24 overflow-hidden">
+                <img src="sponsor${i}.png" alt="Anunciante ${i}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900/60 border border-slate-800 p-3 rounded-2xl flex flex-col items-center justify-center text-center text-xs text-slate-400 font-medium h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500/60 text-lg mb-1\\'></i><span>Auspiciante ${i}</span>';">
+              </div>
+            `);
+          }
+        </script>
 
-      <!-- GRILLA DE SPONSORS / LOGOS DE AUSPICIANTES -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
-          <span>Sponsor Oficial 1</span>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
-          <span>Sponsor Oficial 2</span>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
-          <span>Sponsor Oficial 3</span>
-        </div>
-        <a href="https://wa.me/5492984000000?text=Hola,%20quiero%20anunciar%20mi%20comercio%20en%20FM%20Pueblo%20Viejo" target="_blank" class="bg-rose-500/10 border border-rose-500/30 text-rose-400 p-3 rounded-xl flex items-center justify-center text-center text-xs font-bold hover:bg-rose-500/20 transition">
+        <!-- BOTÓN FINAL PARA VENDER MÁS ESPACIOS -->
+        <a href="https://wa.me/5492984000000?text=Hola,%20quiero%20anunciar%20mi%20comercio%20en%20FM%20Pueblo%20Viejo" target="_blank" class="bg-gradient-to-br from-rose-600/20 to-rose-900/40 border border-rose-500/40 text-rose-400 p-3 rounded-2xl flex flex-col items-center justify-center text-center text-xs font-bold hover:bg-rose-600/30 transition h-24 space-y-1">
+          <i class="fa-solid fa-circle-plus text-xl"></i>
           <span>+ Anuncie Aquí</span>
         </a>
+
       </div>
     </section>
 
@@ -317,7 +317,6 @@
       }
     }
 
-    // ACTUALIZACIÓN AUTOMÁTICA DE PROGRAMACIÓN POR HORARIOS
     function updateSchedule() {
       const now = new Date();
       const hour = now.getHours();
@@ -332,23 +331,6 @@
       } else {
         currentShowText.textContent = 'FM Pueblo Viejo 89.9 - La mejor selección musical 24 hs';
       }
-    }
-
-    // BANNER ROTATIVO DE ANUNCIANTES (CAMBIA CADA 4 SEGUNDOS)
-    const ads = [
-      { title: "Comercio Local", desc: "Tu auspiciante destacado aquí en FM Pueblo Viejo 89.9." },
-      { title: "Publicitá tu Empresa", desc: "Llegá a miles de oyentes en General Roca y la región." },
-      { title: "Contacto Comercial", desc: "Comunicate al WhatsApp de la radio para contratar tu banner." }
-    ];
-    let currentAdIndex = 0;
-
-    function rotateAds() {
-      const adTitle = document.getElementById('adTitle');
-      const adDesc = document.getElementById('adDesc');
-
-      currentAdIndex = (currentAdIndex + 1) % ads.length;
-      adTitle.textContent = ads[currentAdIndex].title;
-      adDesc.textContent = ads[currentAdIndex].desc;
     }
 
     async function loadWeather() {
@@ -368,9 +350,11 @@
     window.addEventListener('DOMContentLoaded', () => {
       loadWeather();
       updateSchedule();
-      setInterval(updateSchedule, 60000); // Revisa horario cada minuto
-      setInterval(rotateAds, 4000);       // Rota anuncios cada 4 segundos
+      setInterval(updateSchedule, 60000);
     });
   </script>
 </body>
 </html>
+  
+
+      
