@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES / BANNERS CON CONTENEDOR EQUILIBRADO -->
+    <!-- SECCIÓN ANUNCIANTES / TARJETAS ROBUSTAS Y EQUILIBRADAS -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
@@ -188,9 +188,9 @@
         <span class="text-[11px] text-rose-400 font-medium">Marcas que acompañan el aire</span>
       </div>
 
-      <!-- GRILLA CON PROPORCIÓN EXACTA Y CENTRADA -->
+      <!-- GRILLA CON ALTURA ÓPTIMA (h-28) Y FONDO OSCURO UNIFICADO -->
       <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <!-- Los banners rotarán aquí perfectamente contenidos -->
+        <!-- Los banners rotarán aquí con tamaño robusto -->
       </div>
     </section>
 
@@ -329,15 +329,12 @@
 
       for (let i = 0; i < 4; i++) {
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
-        
-        // Usamos sponsor3 limpio (sin tilde en el código) y el resto .png/.jpg según corresponda
-        let ext = (sponsorNum === 6 || sponsorNum === 7) ? 'jpg' : 'png';
-        let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.' + ext;
+        let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.png';
 
-        // Fondo blanco impecable con padding interno para que NINGÚN logo quede cortado ni inflado
+        // Fondo oscuro corporativo (bg-slate-900), altura óptima (h-28) y padding mínimo para que ocupen todo el espacio sin recortes
         html += `
-          <div class="bg-white border-2 border-slate-700/60 p-3 rounded-xl flex items-center justify-center shadow-lg h-24 overflow-hidden fade-in">
-            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>';">
+          <div class="bg-slate-900 border-2 border-slate-700/80 p-1 rounded-xl flex items-center justify-center shadow-lg h-28 overflow-hidden fade-in">
+            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-28'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>';">
           </div>
         `;
       }
