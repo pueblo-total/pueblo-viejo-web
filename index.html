@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES / TARJETAS ROBUSTAS Y EQUILIBRADAS -->
+    <!-- SECCIÓN ANUNCIANTES / BANNERS CON FONDO BLANCO UNIFICADO -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
@@ -188,9 +188,9 @@
         <span class="text-[11px] text-rose-400 font-medium">Marcas que acompañan el aire</span>
       </div>
 
-      <!-- GRILLA CON ALTURA ÓPTIMA (h-28) Y FONDO OSCURO UNIFICADO -->
+      <!-- GRILLA CON FONDO BLANCO PARA INTEGRAR LOS LOGOS -->
       <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <!-- Los banners rotarán aquí con tamaño robusto -->
+        <!-- Banners rotativos -->
       </div>
     </section>
 
@@ -331,10 +331,10 @@
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
         let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.png';
 
-        // Fondo oscuro corporativo (bg-slate-900), altura óptima (h-28) y padding mínimo para que ocupen todo el espacio sin recortes
+        // Usamos fondo blanco (bg-white) con altura h-32 para que los logos respiren grandes y profesionales
         html += `
-          <div class="bg-slate-900 border-2 border-slate-700/80 p-1 rounded-xl flex items-center justify-center shadow-lg h-28 overflow-hidden fade-in">
-            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-28'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>';">
+          <div class="bg-white border-2 border-slate-700/60 p-2 rounded-xl flex items-center justify-center shadow-xl h-32 overflow-hidden fade-in">
+            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.jpg'; this.onerror=function(){ this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-32'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>'; };">
           </div>
         `;
       }
@@ -361,7 +361,7 @@
       updateSchedule();
       renderSponsors();
       setInterval(updateSchedule, 60000);
-      setInterval(renderSponsors, 5000);
+      setInterval(renderSponsors, 7000); 
     });
   </script>
 </body>
