@@ -17,14 +17,6 @@
         extend: {
           fontFamily: {
             sans: ['Poppins', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              red: '#e63946',
-              dark: '#0f172a',
-              card: '#1e293b',
-              accent: '#f59e0b',
-            }
           }
         }
       }
@@ -32,14 +24,6 @@
   </script>
 
   <style>
-    @keyframes pulse-slow {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.02); }
-    }
-    .animate-pulse-slow {
-      animation: pulse-slow 3s infinite ease-in-out;
-    }
-    
     .wave-bar {
       animation: wave 1.2s infinite ease-in-out;
     }
@@ -59,10 +43,11 @@
   <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-xl">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       
-      <!-- LOGO Y NOMBRE -->
+      <!-- LOGO CORREGIDO Y NOMBRE -->
       <div class="flex items-center space-x-3">
-        <!-- Selector inteligente de imágenes por si el nombre tiene mayúsculas -->
-        <img id="radioLogo" src="logo-pueblo-viejo.jpg" alt="Logo FM Pueblo Viejo" class="w-12 h-12 rounded-full object-cover border-2 border-rose-500 shadow-md" onerror="this.onerror=null; this.src='FMPuebloViejo.jpg';">
+        <div class="w-14 h-14 bg-slate-950 rounded-xl border border-slate-700/80 p-1 flex items-center justify-center shadow-md overflow-hidden">
+          <img id="radioLogo" src="logo-pueblo-viejo.jpg" alt="FM Pueblo Viejo" class="w-full h-full object-contain rounded-lg">
+        </div>
         <div>
           <h1 class="font-extrabold text-xl tracking-wide text-white leading-tight">
             FM PUEBLO VIEJO
@@ -75,7 +60,7 @@
       </div>
 
       <!-- ESTADO DEL TIEMPO -->
-      <div id="weatherWidget" class="hidden md:flex items-center bg-slate-800/80 border border-slate-700/60 rounded-xl px-3 py-1.5 space-x-3">
+      <div id="weatherWidget" class="hidden md:flex items-center bg-slate-800/80 border border-slate-700/60 rounded-xl px-3.5 py-2 space-x-3">
         <i id="weatherIcon" class="fa-solid fa-cloud-sun text-amber-400 text-2xl"></i>
         <div>
           <div class="flex items-center space-x-1">
@@ -109,37 +94,40 @@
   <!-- MAIN CONTENT -->
   <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
 
-    <!-- REPRODUCTOR PRINCIPAL -->
+    <!-- REPRODUCTOR PRINCIPAL CON LOGO DESTACADO -->
     <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-slate-700/80 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
       <div class="absolute -top-24 -right-24 w-72 h-72 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
         
-        <!-- INFO DE LA EMISORA -->
-        <div class="text-center md:text-left space-y-2">
-          <div class="inline-flex items-center space-x-2 bg-rose-500/10 text-rose-400 border border-rose-500/20 px-3 py-1 rounded-full text-xs font-semibold">
-            <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
-            <span>EMISORA PRINCIPAL</span>
+        <!-- LOGO GRANDE Y DETALLES -->
+        <div class="flex flex-col sm:flex-row items-center text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-5">
+          <div class="w-28 h-28 bg-slate-950 border-2 border-rose-500/80 p-2 rounded-2xl shadow-xl flex items-center justify-center flex-shrink-0">
+            <img src="logo-pueblo-viejo.jpg" alt="FM Pueblo Viejo 89.9" class="w-full h-full object-contain rounded-lg">
           </div>
-          <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
-            FM Pueblo Viejo <span class="text-rose-500">89.9</span>
-          </h2>
-          <p class="text-slate-400 text-sm md:text-base max-w-md">
-            La música, noticias y la voz de la gente de General Roca y el Alto Valle.
-          </p>
+          <div class="space-y-1">
+            <div class="inline-flex items-center space-x-2 bg-rose-500/10 text-rose-400 border border-rose-500/20 px-3 py-1 rounded-full text-xs font-semibold mb-1">
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+              <span>EMISORA PRINCIPAL</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
+              FM Pueblo Viejo <span class="text-rose-500">89.9</span>
+            </h2>
+            <p class="text-slate-400 text-sm max-w-sm">
+              La voz, noticias y música de General Roca y el Alto Valle.
+            </p>
+          </div>
         </div>
 
-        <!-- CONTROLES Y ECUALIZADOR -->
+        <!-- CONTROLES -->
         <div class="flex flex-col items-center md:items-end space-y-4 w-full md:w-auto">
           
-          <div class="flex items-center space-x-4 bg-slate-950/60 border border-slate-800 p-4 rounded-2xl w-full md:w-auto justify-center">
+          <div class="flex items-center space-x-4 bg-slate-950/70 border border-slate-800 p-4 rounded-2xl w-full md:w-auto justify-center">
             
-            <!-- BOTÓN PLAY/PAUSE -->
             <button id="mainPlayBtn" onclick="toggleMainPlay()" class="w-16 h-16 bg-gradient-to-tr from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-rose-600/30 transition-all transform active:scale-95 focus:outline-none">
               <i id="mainPlayIcon" class="fa-solid fa-play text-2xl ml-1"></i>
             </button>
 
-            <!-- STATUS Y ONDAS -->
             <div class="px-2">
               <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1" id="mainStatusText">
                 Hacé clic para escuchar
@@ -152,7 +140,6 @@
               </div>
             </div>
 
-            <!-- VOLUMEN -->
             <div class="hidden sm:flex items-center space-x-2 border-l border-slate-800 pl-4">
               <i class="fa-solid fa-volume-high text-slate-400 text-sm"></i>
               <input id="mainVolume" type="range" min="0" max="1" step="0.05" value="1" oninput="setMainVolume(this.value)" class="w-20 accent-rose-500 bg-slate-800 h-1.5 rounded-lg appearance-none cursor-pointer">
@@ -175,10 +162,10 @@
           </div>
           <div>
             <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded uppercase border border-amber-500/20">
-              RADIO TOTAL 89.5
+              EMISORA INVITADA / SECUNDARIA
             </span>
-            <h3 class="text-lg font-bold text-white mt-0.5">Radio Total</h3>
-            <p class="text-xs text-slate-400">La radio de los cásicos.</p>
+            <h3 class="text-lg font-bold text-white mt-0.5">Radio Aliada</h3>
+            <p class="text-xs text-slate-400">Transmisión simultánea o programa especial.</p>
           </div>
         </div>
 
@@ -190,34 +177,39 @@
       </div>
     </section>
 
-    <!-- SECCIÓN REDES SOCIALES -->
+    <!-- REDES SOCIALES (REEMPLAZA LAS URLS CON TUS PERFILES REALES) -->
     <section class="space-y-4">
       <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 text-center md:text-left">
         Conectate con la Radio
       </h3>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-        <a href="https://wa.me/5492984561288" target="_blank" class="bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <!-- Reemplaza el número por el de la radio -->
+        <a href="https://wa.me/5492984000000" target="_blank" class="bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-whatsapp text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">WhatsApp</span>
         </a>
 
-        <a href="https://facebook.com" target="_blank" class="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <!-- Reemplaza por la URL de tu Facebook -->
+        <a href="https://facebook.com/fmpuebloviejo" target="_blank" class="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-facebook-f text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">Facebook</span>
         </a>
 
+        <!-- Reemplaza por tu Instagram -->
         <a href="https://instagram.com/fmpuebloviejo" target="_blank" class="bg-pink-600/10 hover:bg-pink-600/20 border border-pink-500/30 text-pink-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-instagram text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">Instagram</span>
         </a>
 
-        <a href="https://tiktok.com/fmpuebloviejo" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <!-- Reemplaza por tu usuario de TikTok ej: https://tiktok.com/@fmpuebloviejo -->
+        <a href="https://tiktok.com" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-tiktok text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">TikTok</span>
         </a>
 
-        <a href="https://youtube.com/fmpuebloviejo899" target="_blank" class="bg-red-600/10 hover:bg-red-600/20 border border-red-500/30 text-red-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group col-span-2 sm:col-span-1">
+        <!-- Reemplaza por tu canal de YouTube ej: https://youtube.com/@fmpuebloviejo -->
+        <a href="https://youtube.com" target="_blank" class="bg-red-600/10 hover:bg-red-600/20 border border-red-500/30 text-red-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group col-span-2 sm:col-span-1">
           <i class="fa-brands fa-youtube text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">YouTube</span>
         </a>
@@ -230,16 +222,13 @@
   <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
     <div class="max-w-6xl mx-auto px-4 space-y-2">
       <p>© FM Pueblo Viejo 89.9 MHz - General Roca, Río Negro, Argentina.</p>
-      <p class="text-[11px] text-slate-600">Sitio alojado en GitHub Pages | Transmisión en vivo 24/7</p>
     </div>
   </footer>
 
-  <!-- SCRIPT DE REPRODUCCIÓN Y CLIMA -->
   <script>
     const STREAM_URL_PRINCIPAL = 'https://s3.netradiofm.com/p/6042/stream';
     const STREAM_URL_SECUNDARIA = 'https://s3.netradiofm.com/p/5252/stream';
 
-    // Optimizador de buffer para evitar microcortes de red
     const mainAudio = new Audio();
     mainAudio.preload = "auto";
     mainAudio.src = STREAM_URL_PRINCIPAL;
@@ -258,7 +247,6 @@
       }
 
       if (mainAudio.paused) {
-        // Forzar recarga limpia si el stream se congeló
         mainAudio.load();
         mainAudio.play().then(() => {
           btnIcon.className = 'fa-solid fa-pause text-2xl';
@@ -266,8 +254,7 @@
           statusText.className = 'text-xs text-rose-400 font-bold uppercase tracking-wider mb-1';
           waveform.classList.remove('opacity-30');
         }).catch(err => {
-          console.error("Error al reproducir:", err);
-          alert("No se pudo conectar con el servidor de streaming.");
+          console.error("Error reproduciendo:", err);
         });
       } else {
         mainAudio.pause();
@@ -296,7 +283,7 @@
           btnIcon.className = 'fa-solid fa-pause';
           btnText.textContent = 'Pausar Emisora 2';
         }).catch(err => {
-          console.error("Error al reproducir emisora 2:", err);
+          console.error("Error reproduciendo emisora 2:", err);
         });
       } else {
         secondAudio.pause();
