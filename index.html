@@ -74,15 +74,15 @@
     </div>
   </header>
 
-  <!-- BARRA DE ALERTA NOTICIAS / PROMO -->
+  <!-- BARRA DINÁMICA DE PROGRAMACIÓN AL AIRE / ALERTA -->
   <div id="alertBanner" class="bg-gradient-to-r from-rose-700 via-rose-600 to-amber-600 text-white py-2.5 px-4 shadow-lg border-b border-rose-500">
     <div class="max-w-6xl mx-auto flex items-center justify-between text-xs md:text-sm font-medium">
       <div class="flex items-center space-x-2 overflow-hidden">
         <span class="bg-white text-rose-700 text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider animate-pulse flex-shrink-0">
-          ÚLTIMO MOMENTO
+          AL AIRE AHORA
         </span>
-        <p class="truncate">
-          📻 ¡Escuchanos en la 89.9 MHz! Transmitiendo en vivo desde General Roca para toda la región.
+        <p id="currentShowText" class="truncate font-semibold">
+          📻 Cargando programación...
         </p>
       </div>
       <button onclick="document.getElementById('alertBanner').remove()" class="text-white/80 hover:text-white ml-2">
@@ -151,7 +151,6 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         
         <div class="flex items-center space-x-4 text-center sm:text-left">
-          <!-- LOGO RADIO TOTAL 89.5 -->
           <div class="w-14 h-14 bg-white border border-slate-700 rounded-xl p-1 flex items-center justify-center flex-shrink-0 overflow-hidden shadow-md">
             <img src="logo-radio-total.jpg" alt="Radio Total 89.5" class="w-full h-full object-contain rounded-lg" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fa-solid fa-radio text-amber-400 text-xl\'></i>';">
           </div>
@@ -172,35 +171,69 @@
       </div>
     </section>
 
-    <!-- REDES SOCIALES CONFIGURADAS -->
+    <!-- SECCIÓN ANUNCIANTES / BANNER ROTATIVO PUBLICITARIO -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
+          Nuestros Anunciantes & Auspiciantes
+        </h3>
+        <span class="text-[11px] text-rose-400 font-medium">Anuncie en FM Pueblo Viejo 89.9</span>
+      </div>
+
+      <!-- BANNER PUBLICITARIO DESTACADO (ROTATIVO AUTOMÁTICO) -->
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-700/60 rounded-2xl p-6 text-center shadow-lg relative overflow-hidden transition-all duration-500 min-h-[120px] flex items-center justify-center">
+        <div id="adBannerContent" class="space-y-2">
+          <!-- Este contenido va rotando solo cada 4 segundos -->
+          <span class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-500/20 uppercase tracking-widest">ESPACIO PUBLICITARIO</span>
+          <h4 id="adTitle" class="text-xl font-bold text-white">Comercio Local de General Roca</h4>
+          <p id="adDesc" class="text-xs text-slate-400">Tu lugar ideal para tus compras diarias. Visitanos en General Roca.</p>
+        </div>
+      </div>
+
+      <!-- GRILLA DE SPONSORS / LOGOS DE AUSPICIANTES -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
+          <span>Sponsor Oficial 1</span>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
+          <span>Sponsor Oficial 2</span>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-xl flex items-center justify-center text-center text-xs text-slate-400 font-semibold hover:border-slate-700 transition">
+          <span>Sponsor Oficial 3</span>
+        </div>
+        <a href="https://wa.me/5492984000000?text=Hola,%20quiero%20anunciar%20mi%20comercio%20en%20FM%20Pueblo%20Viejo" target="_blank" class="bg-rose-500/10 border border-rose-500/30 text-rose-400 p-3 rounded-xl flex items-center justify-center text-center text-xs font-bold hover:bg-rose-500/20 transition">
+          <span>+ Anuncie Aquí</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- REDES SOCIALES -->
     <section class="space-y-4">
       <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 text-center md:text-left">
         Conectate con la Radio
       </h3>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-        <a href="https://wa.me/5492984561288" target="_blank" class="bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <a href="https://wa.me/5492984000000" target="_blank" class="bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-whatsapp text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">WhatsApp</span>
         </a>
 
-        <a href="https://facebook.com/fmpuebloviejo899" target="_blank" class="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <a href="https://facebook.com" target="_blank" class="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-facebook-f text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">Facebook</span>
         </a>
 
-        <a href="https://instagram.com/fmpuebloviejo" target="_blank" class="bg-pink-600/10 hover:bg-pink-600/20 border border-pink-500/30 text-pink-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
+        <a href="https://instagram.com" target="_blank" class="bg-pink-600/10 hover:bg-pink-600/20 border border-pink-500/30 text-pink-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-instagram text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">Instagram</span>
         </a>
 
-        <!-- TikTok Corregido -->
         <a href="https://www.tiktok.com/@fmpuebloviejo" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group">
           <i class="fa-brands fa-tiktok text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">TikTok</span>
         </a>
 
-        <!-- YouTube Corregido -->
         <a href="https://www.youtube.com/@fmpuebloviejo899" target="_blank" class="bg-red-600/10 hover:bg-red-600/20 border border-red-500/30 text-red-400 p-4 rounded-2xl flex flex-col items-center justify-center space-y-2 transition group col-span-2 sm:col-span-1">
           <i class="fa-brands fa-youtube text-3xl group-hover:scale-110 transition-transform"></i>
           <span class="text-xs font-semibold">YouTube</span>
@@ -284,6 +317,40 @@
       }
     }
 
+    // ACTUALIZACIÓN AUTOMÁTICA DE PROGRAMACIÓN POR HORARIOS
+    function updateSchedule() {
+      const now = new Date();
+      const hour = now.getHours();
+      const currentShowText = document.getElementById('currentShowText');
+
+      if (hour >= 6 && hour < 9) {
+        currentShowText.textContent = 'De 06:00 a 09:00 - Raíces, tango y folklore';
+      } else if (hour >= 9 && hour < 13) {
+        currentShowText.textContent = 'De 09:00 a 13:00 - Música y noticias';
+      } else if (hour >= 13 && hour < 16) {
+        currentShowText.textContent = 'De 13:00 a 16:00 - ATR a todo ritmo';
+      } else {
+        currentShowText.textContent = 'FM Pueblo Viejo 89.9 - La mejor selección musical 24 hs';
+      }
+    }
+
+    // BANNER ROTATIVO DE ANUNCIANTES (CAMBIA CADA 4 SEGUNDOS)
+    const ads = [
+      { title: "Comercio Local", desc: "Tu auspiciante destacado aquí en FM Pueblo Viejo 89.9." },
+      { title: "Publicitá tu Empresa", desc: "Llegá a miles de oyentes en General Roca y la región." },
+      { title: "Contacto Comercial", desc: "Comunicate al WhatsApp de la radio para contratar tu banner." }
+    ];
+    let currentAdIndex = 0;
+
+    function rotateAds() {
+      const adTitle = document.getElementById('adTitle');
+      const adDesc = document.getElementById('adDesc');
+
+      currentAdIndex = (currentAdIndex + 1) % ads.length;
+      adTitle.textContent = ads[currentAdIndex].title;
+      adDesc.textContent = ads[currentAdIndex].desc;
+    }
+
     async function loadWeather() {
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-39.0333&longitude=-67.5833&current_weather=true');
@@ -300,6 +367,9 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       loadWeather();
+      updateSchedule();
+      setInterval(updateSchedule, 60000); // Revisa horario cada minuto
+      setInterval(rotateAds, 4000);       // Rota anuncios cada 4 segundos
     });
   </script>
 </body>
