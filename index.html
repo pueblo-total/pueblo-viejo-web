@@ -1,6 +1,3 @@
-HTML
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,6 +34,15 @@ HTML
     @keyframes wave {
       0%, 100% { height: 8px; }
       50% { height: 28px; }
+    }
+
+    /* Animación suave para el carrusel de anunciantes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
     }
   </style>
 </head>
@@ -77,7 +83,7 @@ HTML
     </div>
   </header>
 
-  <!-- BARRA DINÁMICA DE PROGRAMACIÓN AL AIRE / ALERTA -->
+  <!-- BARRA DINÁMICA DE PROGRAMACIÓN AL AIRE -->
   <div id="alertBanner" class="bg-gradient-to-r from-rose-700 via-rose-600 to-amber-600 text-white py-2.5 px-4 shadow-lg border-b border-rose-500">
     <div class="max-w-6xl mx-auto flex items-center justify-between text-xs md:text-sm font-medium">
       <div class="flex items-center space-x-2 overflow-hidden">
@@ -174,36 +180,18 @@ HTML
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES CON GRILLA PROLIJA DE LOGOS (11 ANUNCIANTES) -->
+    <!-- SECCIÓN ANUNCIANTES / CARRUSEL DINÁMICO (MISMA CATEGORÍA) -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
-          Nuestros Anunciantes & Auspiciantes
+          Auspiciantes & Comercios Amigos de la Radio
         </h3>
-        <span class="text-[11px] text-rose-400 font-medium">Anuncie en FM Pueblo Viejo 89.9</span>
+        <span class="text-[11px] text-rose-400 font-medium">Acompañan nuestra programación</span>
       </div>
 
-      <!-- GRILLA ADAPTADA PARA CONTENER FONDOS BLANCOS PROLIJOS -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        
-        <!-- Recuadros para sponsor1.png hasta sponsor11.png -->
-        <!-- Si un logo no existe aún, muestra un recuadro de texto limpio -->
-        <script>
-          for (let i = 1; i <= 11; i++) {
-            document.write(`
-              <div class="bg-white/95 border border-slate-700/50 p-2.5 rounded-2xl flex items-center justify-center shadow-md hover:scale-105 transition-transform h-24 overflow-hidden">
-                <img src="sponsor${i}.png" alt="Anunciante ${i}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900/60 border border-slate-800 p-3 rounded-2xl flex flex-col items-center justify-center text-center text-xs text-slate-400 font-medium h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500/60 text-lg mb-1\\'></i><span>Auspiciante ${i}</span>';">
-              </div>
-            `);
-          }
-        </script>
-
-        <!-- BOTÓN FINAL PARA VENDER MÁS ESPACIOS -->
-        <a href="https://wa.me/5492984000000?text=Hola,%20quiero%20anunciar%20mi%20comercio%20en%20FM%20Pueblo%20Viejo" target="_blank" class="bg-gradient-to-br from-rose-600/20 to-rose-900/40 border border-rose-500/40 text-rose-400 p-3 rounded-2xl flex flex-col items-center justify-center text-center text-xs font-bold hover:bg-rose-600/30 transition h-24 space-y-1">
-          <i class="fa-solid fa-circle-plus text-xl"></i>
-          <span>+ Anuncie Aquí</span>
-        </a>
-
+      <!-- GRILLA DINÁMICA DE 4 BANNERS ROTATIVOS QUE MUESTRAN LOS 11 (O MÁS) -->
+      <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- Los banners rotan automáticamente aquí mediante JavaScript -->
       </div>
     </section>
 
@@ -333,6 +321,27 @@ HTML
       }
     }
 
+    // LISTA DE ANUNCIANTES (Aquí puedes cambiar o sumar del 1 al 30 fácilmente)
+    const totalSponsors = 11; 
+    let sponsorOffset = 0;
+
+    function renderSponsors() {
+      const grid = document.getElementById('sponsorsGrid');
+      let html = '';
+
+      // Mostramos 4 en pantalla de forma rotativa
+      for (let i = 0; i < 4; i++) {
+        let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
+        html += `
+          <div class="bg-white/95 border border-slate-700/50 p-2.5 rounded-2xl flex items-center justify-center shadow-md h-24 overflow-hidden fade-in">
+            <img src="sponsor${sponsorNum}.png" alt="Auspiciante ${sponsorNum}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.parentElement.className='bg-slate-900/60 border border-slate-800 p-3 rounded-2xl flex flex-col items-center justify-center text-center text-xs text-slate-400 font-medium h-24'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500/60 text-lg mb-1\\'>\\</i><span>Comercio ${sponsorNum}</span>';">
+          </div>
+        `;
+      }
+      grid.innerHTML = html;
+      sponsorOffset = (sponsorOffset + 4) % totalSponsors; // Rota de a 4 banners
+    }
+
     async function loadWeather() {
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-39.0333&longitude=-67.5833&current_weather=true');
@@ -350,11 +359,10 @@ HTML
     window.addEventListener('DOMContentLoaded', () => {
       loadWeather();
       updateSchedule();
+      renderSponsors();
       setInterval(updateSchedule, 60000);
+      setInterval(renderSponsors, 5000); // Rota los 11 sponsors cada 5 segundos
     });
   </script>
 </body>
 </html>
-  
-
-      
