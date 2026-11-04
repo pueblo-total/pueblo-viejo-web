@@ -53,11 +53,11 @@
       
       <!-- LOGO Y NOMBRE -->
       <div class="flex items-center space-x-3">
-        <div class="w-14 h-14 bg-slate-950 rounded-xl border border-slate-700/80 p-1 flex items-center justify-center shadow-md overflow-hidden">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-slate-950 rounded-xl border border-slate-700/80 p-1 flex items-center justify-center shadow-md overflow-hidden flex-shrink-0">
           <img id="radioLogo" src="logo-pueblo-viejo.jpg" alt="FM Pueblo Viejo" class="w-full h-full object-contain rounded-lg">
         </div>
         <div>
-          <h1 class="font-extrabold text-xl tracking-wide text-white leading-tight">
+          <h1 class="font-extrabold text-lg sm:text-xl tracking-wide text-white leading-tight">
             FM PUEBLO VIEJO
           </h1>
           <div class="flex items-center space-x-2">
@@ -100,16 +100,16 @@
   </div>
 
   <!-- MAIN CONTENT -->
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+  <main class="max-w-6xl mx-auto px-4 py-6 md:py-8 flex-grow w-full space-y-8">
 
     <!-- REPRODUCTOR PRINCIPAL -->
-    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-slate-700/80 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-slate-700/80 rounded-3xl p-5 md:p-8 shadow-2xl relative overflow-hidden">
       <div class="absolute -top-24 -right-24 w-72 h-72 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
         
         <div class="flex flex-col sm:flex-row items-center text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-5">
-          <div class="w-28 h-28 bg-slate-950 border-2 border-rose-500/80 p-2 rounded-2xl shadow-xl flex items-center justify-center flex-shrink-0">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 bg-slate-950 border-2 border-rose-500/80 p-2 rounded-2xl shadow-xl flex items-center justify-center flex-shrink-0">
             <img src="logo-pueblo-viejo.jpg" alt="FM Pueblo Viejo 89.9" class="w-full h-full object-contain rounded-lg">
           </div>
           <div class="space-y-1">
@@ -117,10 +117,10 @@
               <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
               <span>EMISORA PRINCIPAL</span>
             </div>
-            <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
               FM Pueblo Viejo <span class="text-rose-500">89.9</span>
             </h2>
-            <p class="text-slate-400 text-sm max-w-sm">
+            <p class="text-slate-400 text-xs sm:text-sm max-w-sm">
               La voz, noticias y música de General Roca y el Alto Valle.
             </p>
           </div>
@@ -179,26 +179,26 @@
       </div>
     </section>
 
-    <!-- SECCIÓN GRILLA DE PROGRAMACIÓN SEMANAL (TABS / PESTAÑAS) -->
-    <section class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
+    <!-- SECCIÓN GRILLA DE PROGRAMACIÓN SEMANAL (TABS) -->
+    <section class="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl space-y-6">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
         <div>
-          <h3 class="text-xl font-extrabold text-white uppercase tracking-wide flex items-center space-x-2">
+          <h3 class="text-lg sm:text-xl font-extrabold text-white uppercase tracking-wide flex items-center space-x-2">
             <i class="fa-solid fa-calendar-days text-rose-500"></i>
             <span>Grilla de Programación</span>
           </h3>
           <p class="text-xs text-slate-400 mt-1">Conocé todos nuestros programas y horarios de la semana.</p>
         </div>
 
-        <!-- BOTONES DE PESTAÑAS -->
-        <div class="flex items-center bg-slate-950 p-1.5 rounded-xl border border-slate-800 self-start md:self-auto">
-          <button onclick="switchTab('semana')" id="btnSemana" class="px-4 py-2 text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow">
+        <!-- BOTONES DE PESTAÑAS RESPONSIVAS -->
+        <div class="flex items-center bg-slate-950 p-1.5 rounded-xl border border-slate-800 w-full sm:w-auto justify-between sm:justify-start">
+          <button onclick="switchTab('semana')" id="btnSemana" class="px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow flex-1 sm:flex-none text-center">
             Lunes a Viernes
           </button>
-          <button onclick="switchTab('sabado')" id="btnSabado" class="px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white">
+          <button onclick="switchTab('sabado')" id="btnSabado" class="px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition text-slate-400 hover:text-white flex-1 sm:flex-none text-center">
             Sábados
           </button>
-          <button onclick="switchTab('domingo')" id="btnDomingo" class="px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white">
+          <button onclick="switchTab('domingo')" id="btnDomingo" class="px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition text-slate-400 hover:text-white flex-1 sm:flex-none text-center">
             Domingos
           </button>
         </div>
@@ -212,42 +212,42 @@
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b border-slate-800 text-xs font-bold uppercase text-slate-400">
-                <th class="py-3 px-4">Horario</th>
-                <th class="py-3 px-4">Programa / Espacio</th>
+                <th class="py-3 px-3 sm:px-4">Horario</th>
+                <th class="py-3 px-3 sm:px-4">Programa / Espacio</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800/60 text-sm">
+            <tbody class="divide-y divide-slate-800/60 text-xs sm:text-sm">
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400 w-44">05:00 a 06:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Amanecer criollo</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 w-36 sm:w-44 whitespace-nowrap">05:00 a 06:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Amanecer criollo</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">06:00 a 09:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Raíces, tango y folklore</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">06:00 a 09:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Raíces, tango y folklore</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">09:00 a 13:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Música y noticias</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">09:00 a 13:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Música y noticias</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">13:00 a 16:00</td>
-                <td class="py-3.5 px-4 text-slate-200">ATR a todo ritmo</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">13:00 a 16:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">ATR a todo ritmo</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">16:00 a 20:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Música y noticias</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">16:00 a 20:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Música y noticias</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">20:00 a 00:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Bajo las estrellas</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">20:00 a 00:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Bajo las estrellas</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition bg-rose-950/20 border-l-4 border-rose-600">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">21:00 a 23:00 <span class="text-[10px] block text-rose-300 font-normal">(Solo Lunes)</span></td>
-                <td class="py-3.5 px-4 text-slate-200 font-medium">Pan de vida <span class="text-xs text-rose-400 ml-1 italic">(Espacio religioso contratado)</span></td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">21:00 a 23:00 <span class="text-[10px] block text-rose-300 font-normal">(Solo Lunes)</span></td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200 font-medium">Pan de vida <span class="text-xs text-rose-400 ml-1 italic">(Espacio religioso contratado)</span></td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-rose-400">00:00 a 05:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Trasnoche 89.9</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-rose-400 whitespace-nowrap">00:00 a 05:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Trasnoche 89.9</td>
               </tr>
             </tbody>
           </table>
@@ -258,30 +258,30 @@
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b border-slate-800 text-xs font-bold uppercase text-slate-400">
-                <th class="py-3 px-4">Horario</th>
-                <th class="py-3 px-4">Programa / Espacio</th>
+                <th class="py-3 px-3 sm:px-4">Horario</th>
+                <th class="py-3 px-3 sm:px-4">Programa / Espacio</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800/60 text-sm">
+            <tbody class="divide-y divide-slate-800/60 text-xs sm:text-sm">
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400 w-44">00:00 a 06:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Trasnoche bailable</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 w-36 sm:w-44 whitespace-nowrap">00:00 a 06:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Trasnoche bailable</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">06:00 a 08:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Raíces, tango y folklore</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">06:00 a 08:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Raíces, tango y folklore</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">08:00 a 09:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Agro más</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">08:00 a 09:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Agro más</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">09:00 a 13:00</td>
-                <td class="py-3.5 px-4 text-slate-200">A mi manera <span class="text-xs text-amber-400 ml-1 italic">(Sábado de recuerdos)</span></td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">09:00 a 13:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">A mi manera <span class="text-xs text-amber-400 ml-1 italic">(Sábado de recuerdos)</span></td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">13:00 a 00:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Fin de semana ATR</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">13:00 a 00:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Fin de semana ATR</td>
               </tr>
             </tbody>
           </table>
@@ -292,26 +292,26 @@
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b border-slate-800 text-xs font-bold uppercase text-slate-400">
-                <th class="py-3 px-4">Horario</th>
-                <th class="py-3 px-4">Programa / Espacio</th>
+                <th class="py-3 px-3 sm:px-4">Horario</th>
+                <th class="py-3 px-3 sm:px-4">Programa / Espacio</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800/60 text-sm">
+            <tbody class="divide-y divide-slate-800/60 text-xs sm:text-sm">
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400 w-44">00:00 a 06:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Trasnoche bailable</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 w-36 sm:w-44 whitespace-nowrap">00:00 a 06:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Trasnoche bailable</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">06:00 a 13:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Raíces de domingo</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">06:00 a 13:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Raíces de domingo</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">13:00 a 20:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Fin de semana ATR</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">13:00 a 20:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Fin de semana ATR</td>
               </tr>
               <tr class="hover:bg-slate-800/40 transition">
-                <td class="py-3.5 px-4 font-semibold text-amber-400">20:00 a 00:00</td>
-                <td class="py-3.5 px-4 text-slate-200">Latinosaurios</td>
+                <td class="py-3 px-3 sm:px-4 font-semibold text-amber-400 whitespace-nowrap">20:00 a 00:00</td>
+                <td class="py-3 px-3 sm:px-4 text-slate-200">Latinosaurios</td>
               </tr>
             </tbody>
           </table>
@@ -320,17 +320,18 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES -->
+    <!-- SECCIÓN ANUNCIANTES OPTIMIZADA PARA MÓVILES -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
-        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
+        <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400">
           Auspiciantes Oficiales & Comercios Amigos
         </h3>
-        <span class="text-[11px] text-rose-400 font-medium">Marcas que acompañan el aire</span>
+        <span class="text-[11px] text-rose-400 font-medium hidden sm:inline">Marcas que acompañan el aire</span>
       </div>
 
-      <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <!-- Banners rotativos -->
+      <!-- GRILLA ADAPTATIVA: 1 COLUMNA EN MÓVIL, 2 EN TABLET, 4 EN DESKTOP -->
+      <div id="sponsorsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <!-- Banners rotativos dinámicos -->
       </div>
     </section>
 
@@ -450,31 +451,30 @@
       document.getElementById('tabSabado').classList.add('hidden');
       document.getElementById('tabDomingo').classList.add('hidden');
 
-      document.getElementById('btnSemana').className = 'px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white';
-      document.getElementById('btnSabado').className = 'px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white';
-      document.getElementById('btnDomingo').className = 'px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white';
+      document.getElementById('btnSemana').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition text-slate-400 hover:text-white flex-1 sm:flex-none text-center';
+      document.getElementById('btnSabado').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition text-slate-400 hover:text-white flex-1 sm:flex-none text-center';
+      document.getElementById('btnDomingo').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition text-slate-400 hover:text-white flex-1 sm:flex-none text-center';
 
       if (day === 'semana') {
         document.getElementById('tabSemana').classList.remove('hidden');
-        document.getElementById('btnSemana').className = 'px-4 py-2 text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow';
+        document.getElementById('btnSemana').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow flex-1 sm:flex-none text-center';
       } else if (day === 'sabado') {
         document.getElementById('tabSabado').classList.remove('hidden');
-        document.getElementById('btnSabado').className = 'px-4 py-2 text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow';
+        document.getElementById('btnSabado').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow flex-1 sm:flex-none text-center';
       } else if (day === 'domingo') {
         document.getElementById('tabDomingo').classList.remove('hidden');
-        document.getElementById('btnDomingo').className = 'px-4 py-2 text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow';
+        document.getElementById('btnDomingo').className = 'px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold rounded-lg transition bg-rose-600 text-white shadow flex-1 sm:flex-none text-center';
       }
     }
 
     // GRILLA DE PROGRAMACIÓN OFICIAL (LUNES A DOMINGO)
     function updateSchedule() {
       const now = new Date();
-      const day = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+      const day = now.getDay();
       const hour = now.getHours();
       const currentShowText = document.getElementById('currentShowText');
       let showName = "FM Pueblo Viejo 89.9 - Transmisión en vivo 24 hs";
 
-      // LUNES A VIERNES (1 a 5)
       if (day >= 1 && day <= 5) {
         if (day === 1 && hour >= 21 && hour < 23) {
           showName = "Pan de vida (Espacio religioso contratado)";
@@ -493,9 +493,7 @@
         } else if (hour >= 20 && hour < 24) {
           showName = "Bajo las estrellas";
         }
-      } 
-      // SÁBADOS (6)
-      else if (day === 6) {
+      } else if (day === 6) {
         if (hour >= 0 && hour < 6) {
           showName = "Trasnoche bailable";
         } else if (hour >= 6 && hour < 8) {
@@ -507,9 +505,7 @@
         } else if (hour >= 13 && hour < 24) {
           showName = "Fin de semana ATR";
         }
-      } 
-      // DOMINGOS (0)
-      else if (day === 0) {
+      } else if (day === 0) {
         if (hour >= 0 && hour < 6) {
           showName = "Trasnoche bailable";
         } else if (hour >= 6 && hour < 13) {
@@ -535,9 +531,10 @@
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
         let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.png';
 
+        // object-contain con p-2 en contenedor responsivo bg-white para que NO se corte en pantallas chicas
         html += `
-          <div class="bg-white border-2 border-slate-700/80 p-0 rounded-xl flex items-center justify-center shadow-xl h-32 overflow-hidden fade-in">
-            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.jpg'; this.onerror=function(){ this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-32'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>'; };">
+          <div class="bg-white border-2 border-slate-700/80 p-2 rounded-xl flex items-center justify-center shadow-xl h-28 sm:h-32 overflow-hidden fade-in">
+            <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.jpg'; this.onerror=function(){ this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-28 sm:h-32'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>'; };">
           </div>
         `;
       }
