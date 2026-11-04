@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN ANUNCIANTES / BANNERS QUE LLENAN TODO EL RECTÁNGULO -->
+    <!-- SECCIÓN ANUNCIANTES -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">
@@ -188,7 +188,6 @@
         <span class="text-[11px] text-rose-400 font-medium">Marcas que acompañan el aire</span>
       </div>
 
-      <!-- GRILLA CON IMÁGENES AL BORDE EXACTO -->
       <div id="sponsorsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <!-- Banners rotativos -->
       </div>
@@ -304,20 +303,62 @@
       }
     }
 
+    // GRILLA DE PROGRAMACIÓN OFICIAL (LUNES A DOMINGO)
     function updateSchedule() {
       const now = new Date();
+      const day = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
       const hour = now.getHours();
       const currentShowText = document.getElementById('currentShowText');
+      let showName = "FM Pueblo Viejo 89.9 - Transmisión en vivo 24 hs";
 
-      if (hour >= 6 && hour < 9) {
-        currentShowText.textContent = 'De 06:00 a 09:00 - Raíces, tango y folklore';
-      } else if (hour >= 9 && hour < 13) {
-        currentShowText.textContent = 'De 09:00 a 13:00 - Música y noticias';
-      } else if (hour >= 13 && hour < 16) {
-        currentShowText.textContent = 'De 13:00 a 16:00 - ATR a todo ritmo';
-      } else {
-        currentShowText.textContent = 'FM Pueblo Viejo 89.9 - La mejor selección musical 24 hs';
+      // LUNES A VIERNES (1 a 5)
+      if (day >= 1 && day <= 5) {
+        if (day === 1 && hour >= 21 && hour < 23) {
+          showName = "Pan de vida (Espacio religioso contratado)";
+        } else if (hour >= 0 && hour < 5) {
+          showName = "Trasnoche 89.9";
+        } else if (hour >= 5 && hour < 6) {
+          showName = "Amanecer criollo";
+        } else if (hour >= 6 && hour < 9) {
+          showName = "Raíces, tango y folklore";
+        } else if (hour >= 9 && hour < 13) {
+          showName = "Música y noticias";
+        } else if (hour >= 13 && hour < 16) {
+          showName = "ATR a todo ritmo";
+        } else if (hour >= 16 && hour < 20) {
+          showName = "Música y noticias";
+        } else if (hour >= 20 && hour < 24) {
+          showName = "Bajo las estrellas";
+        }
+      } 
+      // SÁBADOS (6)
+      else if (day === 6) {
+        if (hour >= 0 && hour < 6) {
+          showName = "Trasnoche bailable";
+        } else if (hour >= 6 && hour < 8) {
+          showName = "Raíces, tango y folklore";
+        } else if (hour >= 8 && hour < 9) {
+          showName = "Agro más";
+        } else if (hour >= 9 && hour < 13) {
+          showName = "A mi manera (Sábado de recuerdos)";
+        } else if (hour >= 13 && hour < 24) {
+          showName = "Fin de semana ATR";
+        }
+      } 
+      // DOMINGOS (0)
+      else if (day === 0) {
+        if (hour >= 0 && hour < 6) {
+          showName = "Trasnoche bailable";
+        } else if (hour >= 6 && hour < 13) {
+          showName = "Raíces de domingo";
+        } else if (hour >= 13 && hour < 20) {
+          showName = "Fin de semana ATR";
+        } else if (hour >= 20 && hour < 24) {
+          showName = "Latinosaurios";
+        }
       }
+
+      currentShowText.textContent = showName;
     }
 
     const totalSponsors = 11; 
@@ -331,7 +372,6 @@
         let sponsorNum = ((sponsorOffset + i) % totalSponsors) + 1;
         let imgUrl = 'fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.png';
 
-        // Usamos object-cover con p-0 y h-32 para que la imagen llene absolutamente todo el rectángulo sin dejar márgenes blancos
         html += `
           <div class="bg-white border-2 border-slate-700/80 p-0 rounded-xl flex items-center justify-center shadow-xl h-32 overflow-hidden fade-in">
             <img src="${imgUrl}" alt="Auspiciante ${sponsorNum}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='fmpuebloviejo-sponsors/sponsor' + sponsorNum + '.jpg'; this.onerror=function(){ this.parentElement.className='bg-slate-900 border border-slate-700 p-2 rounded-xl flex flex-col items-center justify-center text-center text-[10px] text-amber-400 font-semibold h-32'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-store text-rose-500 text-lg mb-1\\'></i><span>Auspiciante ${sponsorNum}</span>'; };">
